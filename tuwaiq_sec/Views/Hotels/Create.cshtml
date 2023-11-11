@@ -1,0 +1,27 @@
+﻿@model tuwaiq_sec.Models.Hotel
+
+<h1>Create Hotel</h1>
+
+<form asp-action="Create" method="post">
+    <div>
+        <label asp-for="Name">Name:</label>
+        <input asp-for="Name" />
+    </div>
+    <div>
+        <label asp-for="Address">Address:</label>
+        <input asp-for="Address" />
+    </div>
+    <div>
+        <label asp-for="City">City:</label>
+        <input asp-for="City" />
+    </div>
+    <div>
+        <label asp-for="Country">Country:</label>
+        <input asp-for="Country" />
+    </div>
+    <div>
+        <label asp-for="Images">Images:</label>
+        <input asp-for="Images" />
+    </div>
+    <button type="submit">Create</button>
+</form>

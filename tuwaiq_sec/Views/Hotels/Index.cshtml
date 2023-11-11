@@ -1,0 +1,44 @@
+﻿@model List<tuwaiq_sec.Models.Hotel>
+
+<h1>Hotels</h1>
+
+<div class="form-group">
+    <label for="filterCityName">Filter by City:</label>
+    <input type="text" class="form-control" id="filterCityName" placeholder="Enter city name">
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Location</th>
+            <th>City</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var hotel in Model)
+        {
+            <tr>
+                <td>@hotel.Name</td>
+                <td>@hotel.Address</td>
+                <td>@hotel.City</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#filterCityName').on('input', function () {
+            var filterValue = $(this).val().toLowerCase();
+            $('tbody tr').hide();
+            $('tbody tr').each(function () {
+                var cityName = $(this).find('td:nth-child(3)').text().toLowerCase();
+                if (cityName.includes(filterValue)) {
+                    $(this).show();
+                }
+            });
+        });
+    });
+</script>
