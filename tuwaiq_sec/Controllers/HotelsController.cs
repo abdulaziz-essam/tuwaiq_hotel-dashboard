@@ -40,5 +40,43 @@ namespace tuwaiq_sec.Controllers
 
             return View(hotel);
         }
+        [HttpPost]
+        public IActionResult Delete(int id)
+        {
+            var hotel = _db.Hotels.Find(id);
+            if (hotel != null)
+            {
+                _db.Hotels.Remove(hotel);
+                _db.SaveChanges();
+            }
+
+            return RedirectToAction("Index");
+        }
+        public IActionResult Edit(int id)
+        {
+            var hotel = _db.Hotels.Find(id);
+            if (hotel == null)
+            {
+                return NotFound();
+            }
+
+            return View(hotel);
+        }
+        [HttpPost]
+        public IActionResult Edit(Hotel hotel)
+        {
+            if (ModelState.IsValid)
+            {
+                _db.Hotels.Update(hotel);
+                _db.SaveChanges();
+
+                return RedirectToAction("Index");
+            }
+
+            return View(hotel);
+        }
+
+
+
     }
 }
