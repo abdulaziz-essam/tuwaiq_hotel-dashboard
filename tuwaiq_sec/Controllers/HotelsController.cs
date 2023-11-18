@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using tuwaiq_sec.Data;
 using tuwaiq_sec.Models;
 
@@ -14,7 +15,7 @@ namespace tuwaiq_sec.Controllers
         }
 
         // GET /hotels
-
+        [Authorize] // Apply the [Authorize] attribute to the action
         public IActionResult Index()
         {
             var hotels = _db.Hotels.ToList();

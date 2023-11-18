@@ -11,7 +11,7 @@ namespace tuwaiq_sec.Models
         public string Type { get; set; }
 
 
-        public string Futures { get; set; }
+  
 
 
         public decimal Price { get; set; }
@@ -24,7 +24,7 @@ namespace tuwaiq_sec.Models
 
 
 
-        public int HotelId { get; set; }
+        public int Hotelid { get; set; }
 
     }
 }

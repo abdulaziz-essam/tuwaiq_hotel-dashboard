@@ -15,10 +15,10 @@ namespace tuwaiq_sec.Models
 
      
       
-        public Room Room { get; set; }
-        public int? RoomId { get; set; }
 
-        public int FoodId { get; set; }
+        public int RoomId { get; set; }
+
+
         public string Food { get; set; }
 
  

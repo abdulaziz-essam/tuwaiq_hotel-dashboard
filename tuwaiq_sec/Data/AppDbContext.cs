@@ -1,9 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
+using tuwaiq_sec.Areas.Identity.Data;
 using tuwaiq_sec.Models;
 
 namespace tuwaiq_sec.Data
 {
-    public class AppDbContext : DbContext
+    public class AppDbContext : IdentityDbContext<tuwaiq_secUser>
     {
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
