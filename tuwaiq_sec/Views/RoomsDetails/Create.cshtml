@@ -1,0 +1,43 @@
+﻿@model tuwaiq_sec.Models.RoomDetail
+
+<h1>إضافة غرفة</h1>
+
+<form asp-action="Create" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label asp-for="Image1">صورة 1</label>
+        <input asp-for="Image1" class="form-control" />
+        <span asp-validation-for="Image1" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Image2">صورة 2</label>
+        <input asp-for="Image2" class="form-control" />
+        <span asp-validation-for="Image2" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Image3">صورة 3</label>
+        <input asp-for="Image3" class="form-control" />
+        <span asp-validation-for="Image3" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="RoomId">رقم الغرفة</label>
+        <input asp-for="RoomId" class="form-control" />
+        <span asp-validation-for="RoomId" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Food">الطعام</label>
+        <input asp-for="Food" class="form-control" />
+        <span asp-validation-for="Food" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="HotelId">رقم الفندق</label>
+        <input asp-for="HotelId" class="form-control" />
+        <span asp-validation-for="HotelId" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">إضافة</button>
+</form>
