@@ -12,8 +12,8 @@ namespace tuwaiq_sec.Controllers
             _db = db;
         }
         [HttpGet]
-        [Route("/RoomsDetails/Edit/{roomId}")]
-        public IActionResult Edit(int id)
+        [Route("/RoomsDetails/{roomId}")]
+        public IActionResult Index(int id)
         {
             var roomDetail = _db.RoomDetail.Find(1);
             if (roomDetail == null)
