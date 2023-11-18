@@ -26,26 +26,6 @@ namespace tuwaiq_sec.Controllers
         }
 
 
-        [HttpGet]
-        [Route("/Rooms/Create")]
-        public IActionResult Create()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        public IActionResult Create(Room room)
-        {
-            if (ModelState.IsValid)
-            {
-                _db.Rooms.Add(room);
-                _db.SaveChanges();
-                return RedirectToAction("Index", new { hotelId = room.Hotelid }); // Redirect to the Index action with the hotelId parameter
-            }
-
-            return View(room);
-
-        }
         public IActionResult Edit(int id)
         {
             var room = _db.Rooms.Find(id);

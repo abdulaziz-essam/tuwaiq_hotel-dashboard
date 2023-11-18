@@ -1,27 +1,37 @@
 ﻿@model tuwaiq_sec.Models.Hotel
 
-<h1>Create Hotel</h1>
+<h1>إضافة غرفة</h1>
 
-<form asp-action="Create" method="post">
-    <div>
-        <label asp-for="Name">Name:</label>
-        <input asp-for="Name" />
+<form  asp-action="Create" method="post">
+    <div class="form-group">
+        <label asp-for="Name">الاسم </label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
     </div>
-    <div>
-        <label asp-for="Address">Address:</label>
-        <input asp-for="Address" />
+
+    <div class="form-group">
+        <label asp-for="Address">العنوان </label>
+        <input asp-for="Address" class="form-control" />
+        <span asp-validation-for="Address" class="text-danger"></span>
     </div>
-    <div>
-        <label asp-for="City">City:</label>
-        <input asp-for="City" />
+
+    <div class="form-group">
+        <label asp-for="Country">الدولة</label>
+        <input asp-for="Country" class="form-control" />
+        <span asp-validation-for="Country" class="text-danger"></span>
     </div>
-    <div>
-        <label asp-for="Country">Country:</label>
-        <input asp-for="Country" />
+
+    <div class="form-group">
+        <label asp-for="City"> المدينة</label>
+        <input asp-for="City" class="form-control" />
+        <span asp-validation-for="City" class="text-danger"></span>
     </div>
-    <div>
-        <label asp-for="Images">Images:</label>
-        <input asp-for="Images" />
+
+    <div class="form-group">
+        <label asp-for="Images">صورة </label>
+        <input asp-for="Images" type="file" class="form-control" />
+        <span asp-validation-for="Images" class="text-danger"></span>
     </div>
-    <button type="submit">Create</button>
+
+    <button type="submit" class="btn btn-primary">إضافة</button>
 </form>

@@ -4,15 +4,14 @@ using tuwaiq_sec.Models;
 
 namespace tuwaiq_sec.Controllers
 {
-    public class RoomsDetailsController : Controller
+    public class RoomDetailsController : Controller
     {
         private readonly AppDbContext _db;
 
-        public RoomsDetailsController(AppDbContext db)
+        public RoomDetailsController(AppDbContext db)
         {
             _db = db;
         }
-     
         [HttpGet]
         [Route("/RoomsDetails/{roomId}")]
         public IActionResult Index(int roomId)
@@ -20,35 +19,35 @@ namespace tuwaiq_sec.Controllers
             var roomDetail = _db.RoomDetail.FirstOrDefault(rd => rd.RoomId == roomId);
             if (roomDetail == null)
             {
-                return NotFound();
+                return RedirectToAction("Create");
             }
 
 
             return View(roomDetail);
         }
+
+        // GET: /RoomDetails/Create
         [HttpGet]
-        [Route("/RoomDetails/Create")]
+
         public IActionResult Create()
         {
             return View();
         }
 
+        // POST: /RoomDetails/Create
         [HttpPost]
-        public IActionResult Create(RoomDetail room)
+
+        public IActionResult Create(RoomDetail roomDetail)
         {
             if (ModelState.IsValid)
             {
-                // Save the new hotel to the database
-                _db.RoomDetail.Add(room);
+                _db.RoomDetail.Add(roomDetail);
                 _db.SaveChanges();
 
-                return RedirectToAction("Index", new { roomId = room.RoomId });
+                return RedirectToAction("Index", "Rooms", new { hotelId = roomDetail.HotelId });
             }
 
-            return View(room);
+            return View(roomDetail);
         }
-
-
-
     }
 }
